@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styling for the entire navigation bar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem; /* Example padding */
+  border-bottom: 1px solid #e0e0e0;
+  font-family: sans-serif;
+}
+
+/* Logo styling */
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ff5722; /* QuickCart orange */
+}
+
+/* Nav links styling */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+/* Action items (button and icons) */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Seller Dashboard button styling */
+.seller-dashboard-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 999px; /* For a pill shape */
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Icons styling */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slide {
+  background: #E6E9F2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  min-width: 100%;
+  border-radius: 12px;
+}
+
+.slide-text {
+  max-width: 500px;
+}
+
+.offer {
+  color: orange;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background: orange;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slide-image img {
+  width: 200px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.dots div {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.3);
+  cursor: pointer;
+}
+
+.dots .active {
+  background: orange;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">QuickCart</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="actions">
+    <button class="seller-dashboard-btn">Seller Dashboard</button>
+    <div class="icons">
+      <span class="icon">🔍</span>
+      <span class="icon">👤 Account</span>
+    </div>
+  </div>
+</nav>
+
+<div class="slider-container">
+  <div class="slider" id="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <div class="slide-text">
+        <p class="offer">Limited Time Offer 30% Off</p>
+        <h1>Experience Pure Sound - Your Perfect Headphones Awaits!</h1>
+        <div class="buttons">
+          <button class="btn-primary">Buy now</button>
+          <button class="btn-secondary">
+            Find more <img src="arrow-icon.png" alt="arrow">
+          </button>
+        </div>
+      </div>
+      <div class="slide-image">
+        <img src="headphone-image.png" alt="Headphones">
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-text">
+        <p class="offer">Hurry up only few lefts!</p>
+        <h1>Next-Level Gaming Starts Here - Discover PlayStation 5 Today!</h1>
+        <div class="buttons">
+          <button class="btn-primary">Shop Now</button>
+          <button class="btn-secondary">
+            Explore Deals <img src="arrow-icon.png" alt="arrow">
+          </button>
+        </div>
+      </div>
+      <div class="slide-image">
+        <img src="playstation-image.png" alt="PlayStation 5">
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-text">
+        <p class="offer">Exclusive Deal 40% Off</p>
+        <h1>Power Meets Elegance - Apple MacBook Pro is Here for you!</h1>
+        <div class="buttons">
+          <button class="btn-primary">Order Now</button>
+          <button class="btn-secondary">
+            Learn More <img src="arrow-icon.png" alt="arrow">
+          </button>
+        </div>
+      </div>
+      <div class="slide-image">
+        <img src="macbook-image.png" alt="MacBook Pro">
+      </div>
+    </div>
+  </div>
+
+  <!-- Dots -->
+  <div class="dots" id="dots"></div>
+</div>
+
+<script src="script.js">
+    const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+
+let currentSlide = 0;
+
+// Create dots
+slides.forEach((_, index) => {
+  const dot = document.createElement('div');
+  dot.addEventListener('click', () => goToSlide(index));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = dotsContainer.querySelectorAll('div');
+
+function updateSlider() {
+  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  updateSlider();
+}
+
+// Auto-slide
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateSlider();
+}, 3000);
+
+// Init
+updateSlider();
+
+</script>
+</body>
+</html>

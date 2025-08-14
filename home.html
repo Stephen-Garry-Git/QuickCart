@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickCart</title>
+    <link rel="stylesheet" href="/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Semi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
+
+</head>
+<body>
+    <nav class="navbar">
+        <img src="/assets/logo.svg" alt="logo" class="logo">
+        <div class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Shop</a>
+            <a href="#" class="nav-link">AboutUs</a>
+            <a href="#" class="nav-link">Contact</a>
+
+            <button class="btn">Seller Dashboard</button>
+
+        </div>
+        <ul>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <button class="account-btn"><i class="fa-solid fa-user"></i>
+                Account
+            </button>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="header-slider" id="header-slider">
+
+            <div class="slider-container" id="slider">
+
+                <!-- Slide 1 -->
+                <div class="slider-content">
+                    <div class="slider-text">
+                        <p class="offer">Limited Time Offer 30% Off</p>
+                        <h1>Experience Pure Sound - Your Perfect Headphones Awaits!</h1>
+                        <div class="buttons">
+                            <button class="btn-primary">Buy now</button>
+                            <button class="btn-secondary">
+                                Find more <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/assets/header_headphone_image.png" alt="Headphones">
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slider-content">
+                    <div class="slider-text">
+                        <p class="offer">Hurry up only few lefts!</p>
+                        <h1>Next-Level Gaming Starts Here - Discover PlayStation 5 Today!</h1>
+                        <div class="buttons">
+                            <button class="btn-primary">Shop Now</button>
+                            <button class="btn-secondary">
+                                Explore Deals <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/assets/header_playstation_image.png" alt="PlayStation 5">
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slider-content">
+                    <div class="slider-text">
+                        <p class="offer">Exclusive Deal 40% Off</p>
+                        <h1>Power Meets Elegance - Apple MacBook Pro is Here for you!</h1>
+                        <div class="buttons">
+                            <button class="btn-primary">Order Now</button>
+                            <button class="btn-secondary">
+                                Learn More <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/assets/header_macbook_image.png" alt="MacBook Pro">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dots -->
+            <div class="slider-dots" id="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </section>
+
+        <section class="home-products">
+            <div class="home-product-content">
+                <h2>Popular products</h2>
+                <div class="product-grid">
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/bose_headphone_image.png" alt="Bose Headphones" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">Bose QuietComfort 45</h3>
+                        <p class="description">The Bose QuietComfort 45 headphones are engineered for exceptional sound quality and unparalleled noise cancellation. With a 24-hour battery life and comfortable, lightweight design, these headphones deliver premium audio for any environment. Whether on a flight, in the office, or at home, the Bose QC45 blocks out distractions, offering an immersive listening experience.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$329.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/asus_laptop_image.png" alt="Laptop" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">ASUS ROG Zephyrus G16</h3>
+                        <p class="description">The ASUS ROG Zephyrus G16 gaming laptop is powered by the Intel Core i9 processor and features an RTX 4070 GPU, delivering top-tier gaming and performance. With 16GB of RAM and a 1TB SSD, this laptop is designed for gamers who demand extreme power, speed, and storage. Equipped with a stunning 16-inch display, it's built to handle the most demanding titles and applications with ease.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$1999.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/samsung_s23phone_image.png" alt="Phone" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">Samsung Galaxy S23</h3>
+                        <p class="description">The Samsung Galaxy S23 offers an all-encompassing mobile experience with its advanced AMOLED display, offering vibrant visuals and smooth interactions. Equipped with top-of-the-line fitness tracking features and cutting-edge technology, this phone delivers outstanding performance. With powerful hardware, a sleek design, and long battery life, the S23 is perfect for those who demand the best in mobile innovation.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$799.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/playstation_image.png" alt="PlayStation" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">PlayStation 5</h3>
+                        <p class="description">The PlayStation 5 takes gaming to the next level with ultra-HD graphics, a powerful 825GB SSD, and ray tracing technology for realistic visuals. Whether you're into high-action games or immersive storytelling, the PS5 delivers fast loading times, seamless gameplay, and stunning visuals. It's a must-have for any serious gamer looking for the ultimate gaming experience.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$499.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/macbook_image.png" alt="Macbook Laptop" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">MacBook Pro 16</h3>
+                        <p class="description">The MacBook Pro 16, powered by Apple's M2 Pro chip, offers outstanding performance with 16GB RAM and a 512GB SSD. Whether you're editing high-resolution video, developing software, or multitasking with ease, this laptop can handle the toughest tasks. It features a stunning Retina display with True Tone technology, making it a top choice for professionals in creative industries or anyone who demands premium performance in a portable form.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$2499.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/venu_watch_image.png" alt="Wacth" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">Garmin Venu 2</h3>
+                        <p class="description">The Garmin Venu 2 smartwatch blends advanced fitness tracking with sophisticated design, offering a wealth of features such as heart rate monitoring, GPS, and sleep tracking. Built with a 24-hour battery life, this watch is ideal for fitness enthusiasts and anyone looking to enhance their daily lifestyle. With a stunning AMOLED display and customizable watch faces, the Venu 2 combines technology with style seamlessly.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$349.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/cannon_camera_image.png" alt="camera" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">Canon EOS R5</h3>
+                        <p class="description">The Canon EOS R5 is a game-changing mirrorless camera with a 45MP full-frame sensor, offering ultra-high resolution and the ability to shoot 8K video. Whether you're capturing professional-quality stills or cinematic video footage, this camera delivers exceptional clarity, speed, and color accuracy. With advanced autofocus and in-body stabilization, the R5 is ideal for photographers and videographers alike.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$3899.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/apple_earphone_image.png" alt="earphone" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">Apple AirPods Pro 2nd gen</h3>
+                        <p class="description">Apple AirPods Pro (2nd Gen) with MagSafe Case (USB-C) provide excellent sound, active noise cancellation, and a comfortable fit. The USB-C case ensures quick charging, and they pair seamlessly with Apple devices for an effortless audio experience.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$399.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/sony_airbuds_image.png" alt="AirPods" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">Sony WF-1000XM5</h3>
+                        <p class="description">Sony WF-1000XM5 true wireless earbuds deliver immersive sound with Hi-Res Audio and advanced noise cancellation technology. Designed for comfort and quality, they provide a stable, snug fit for a secure listening experience. Whether you're working out or traveling, these earbuds will keep you connected with the world around you while enjoying rich, clear sound.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$299.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="/assets/projector_image.png" alt="projector" class="product-image">
+                            <button class="favorite-btn"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <h3 class="product-name">Samsung Projector 4k</h3>
+                        <p class="description">The Samsung 4K Projector offers an immersive cinematic experience with ultra-high-definition visuals and realistic color accuracy. Equipped with a built-in speaker, it delivers rich sound quality to complement its stunning 4K resolution. Perfect for movie nights, gaming, or presentations, this projector is the ultimate choice for creating an at-home theater experience or professional setting.</p>
+                        <div class="product-rating">
+                            <p class="rating-text">4.5</p>
+                            <div class="star-container">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_icon.svg" alt="Full Star" class="star">
+                                <img src="/assets/star_dull_icon.svg" alt="Dull Star" class="star">
+                            </div>
+                        </div>
+                        <div class="price-buy-row">
+                            <p class="price-text">$1499.99</p>
+                            <button class="buy-now-btn">Buy now</button>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="see-more-btn">See more</button>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="head-content">
+                <p>Featured Products</p>
+                <div class="underline"></div>
+            </div>
+
+            <div class="featured-product-grid">
+
+                <!-- Card 1 -->
+                <div class="featured-product-card">
+                    <img src="/assets/girl_with_headphone_image.png" alt="Girl with an Headphone" class="featured-product-image">
+                    <div class="featured-product-overlay">    
+                        <p class="title">Unparalleled Sound</p>
+                        <p class="description">Experience crystal-clear audio with premium headphones.</p>
+                        <button class="buy-btn">
+                            Buy now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                 <div class="featured-product-card">
+                    <img src="/assets/girl_with_earphone_image.png" alt="girl with earphone" class="featured-product-image">
+                    <div class="featured-product-overlay">    
+                        <p class="title">Stay Connected</p>
+                        <p class="description">Compact and stylish earphones for every occasion.</p>
+                        <button class="buy-btn">
+                            Buy now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                 <div class="featured-product-card">
+                    <img src="/assets/boy_with_laptop_image.png" alt="Boy with laotop image" class="featured-product-image">
+                    <div class="featured-product-overlay">    
+                        <p class="title">Power in Every Pixel</p>
+                        <p class="description">Shop the latest laptops for work, gaming, and more.</p>
+                        <button class="buy-btn">
+                            Buy now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="banner">
+            <div class="banner-container">
+                <img src="/assets/jbl_soundbox_image.png" alt="sound img" class="banner-img">
+                <div class="banner-content">
+                    <h2>Level Up Your Gaming Experience</h2>
+                    <p>From immersive sound to precise controls—everything you need to win</p>
+                    <button class="btn-primary">Buy Now</button>
+                </div>
+                <img src="/assets/md_controller_image.png" alt="md_controller_image" class="banner-controller-md">
+                <img src="/assets/sm_controller_image.png" alt="sm_controller_image" class="banner-controller-sm">
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="news-letter-container">
+                <h1>Subscribe now & get 20% off</h1>
+                <p>Subscribe to our newsletter and be the first to know about exclusive offers, new arrivals, and more!</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="email-input" required>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+    <div class="footer-top">
+        <div class="footer-container">
+            <img src="/assets/logo.svg" alt="logo" class="footer-logo">
+            <p>QuickCart is your one-stop shop for all things electronics. We believe in providing high-quality products at competitive prices, delivered with speed and exceptional service. Our mission is to make online shopping simple, secure, and enjoyable for everyone.</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-link-column">
+                <h2>Company</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-column">
+                <h2>Get in touch</h2>
+                <p>+1-234-567-890</p>
+                <p>contact@greatstack.dev</p>
+            </div>
+        </div>
+    </div>
+    <p class="footer-bottom-text">Copyright 2025 © GreatStack.dev All Right Reserved.</p>
+</footer>
+
+    <script src="/index.js" defer></script>
+</body>
+</html>
