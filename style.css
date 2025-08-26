@@ -79,6 +79,9 @@ a {
 .account-btn:hover {
   color: #111827;
 }
+
+
+
 /* MAIN STYLE */
 main {
     padding-left: 1.5rem;
@@ -775,4 +778,120 @@ main {
     margin-top: 3rem;
     color: #9ca3af;
     font-size: 0.75rem;
+}
+
+
+@media (max-width: 768px) {
+    /* NAVIGATION BAR */
+    .nav-links {display: none;}
+    .navbar {margin: auto;
+
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .logo {margin-left: 0;}
+    .navbar ul {margin-right: 0;}
+
+    /*HEADER SLIDER*/
+    .slider-text h1 {
+    font-size: 30px; /* Reduce font size for main heading */
+  }
+
+  .offer {
+    font-size: 0.9rem;
+  }
+  
+  .buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%; /* Make buttons full width */
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .slide-image img {
+    width: 250px; /* Adjust image size */
+  }
+    /*HOME PRODUCTS*/
+    .home-products {
+        margin-left: 0;
+        margin-right: 0;/*
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;*/
+    }
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    /*FEATURED PRODUCTS*/
+    .featured-products {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /*BANNER*/
+    .banner {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /*NEWS LETTER*/
+    .newsletter {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .newsletter-form {
+        width: 300px;
+        padding: 0;
+    }
+    /*FOOTER*/
+    .footer-top {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .footer .footer-bottom-text {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+}
+
+@media (max-width: 500px) {
+  .slider-text h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-slider {
+    width: 90%;
+  }
+
+  .slider-content {
+    flex-direction: column-reverse; /* Stack text and image vertically */
+    padding: 20px;
+    height: auto;
+  }
+
+  .slider-text {
+    margin-left: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center; /* Center the buttons */
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+    
+}
+
+@media (min-width: 1280px) {
+    
 }
