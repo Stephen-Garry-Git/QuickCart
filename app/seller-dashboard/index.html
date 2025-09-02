@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickCart - Seller Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo::before {
+            content: "🛒";
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        .logout-btn {
+            background: #6b7280;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover {
+            background: #4b5563;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+
+        .sidebar {
+            width: 280px;
+            background: white;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .sidebar-item:hover {
+            background: #f9f9f9;
+        }
+
+        .sidebar-item.active {
+            background: #fff4e6;
+            border-left: 4px solid #f97316;
+            color: #f97316;
+        }
+
+        .sidebar-item svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .section {
+            display: none;
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #f97316;
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 24px;
+        }
+
+        .form-col {
+            flex: 1;
+        }
+
+        .image-upload {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .upload-box {
+            width: 120px;
+            height: 120px;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #9ca3af;
+            font-size: 12px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .upload-box:hover {
+            border-color: #f97316;
+            color: #f97316;
+        }
+
+        .add-btn {
+            background: #f97316;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-btn:hover {
+            background: #ea580c;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .product-table th {
+            text-align: left;
+            padding: 16px;
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .product-table td {
+            padding: 16px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .product-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .product-name {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .category-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .visit-btn {
+            background: #f97316;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .visit-btn:hover {
+            background: #ea580c;
+        }
+
+        .order-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .order-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .order-details {
+            flex: 1;
+        }
+
+        .order-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+
+        .order-items {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .customer-info {
+            flex: 1;
+        }
+
+        .customer-name {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+
+        .customer-address {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .order-meta {
+            text-align: right;
+        }
+
+        .order-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .order-method, .order-date, .order-status {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 2px;
+        }
+
+        .status-pending {
+            color: #d97706;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><img src="/assets/logo.svg" alt="Logo"></div>
+        <button class="logout-btn">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item active" onclick="showSection('add-product')">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                </svg>
+                Add Product
+            </div>
+            <div class="sidebar-item" onclick="showSection('product-list')">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                </svg>
+                Product List
+            </div>
+            <div class="sidebar-item" onclick="showSection('orders')">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5zM8 15a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd" />
+                </svg>
+                Orders
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Add Product Section -->
+            <div id="add-product" class="section active">
+                <h2 class="section-title">Add Product</h2>
+                
+                <div class="form-group">
+                    <label class="form-label">Product Image</label>
+                    <div class="image-upload">
+                        <div class="upload-box" onclick="document.getElementById('img1').click()">
+                            <input type="file" id="img1" accept="image/*" style="display:none" onchange="previewImage(this, 0)">
+                            <div id="preview-0">Upload</div>
+                        </div>
+                        <div class="upload-box" onclick="document.getElementById('img2').click()">
+                            <input type="file" id="img2" accept="image/*" style="display:none" onchange="previewImage(this, 1)">
+                            <div id="preview-1">Upload</div>
+                        </div>
+                        <div class="upload-box" onclick="document.getElementById('img3').click()">
+                            <input type="file" id="img3" accept="image/*" style="display:none" onchange="previewImage(this, 2)">
+                            <div id="preview-2">Upload</div>
+                        </div>
+                        <div class="upload-box" onclick="document.getElementById('img4').click()">
+                            <input type="file" id="img4" accept="image/*" style="display:none" onchange="previewImage(this, 3)">
+                            <div id="preview-3">Upload</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Product Name</label>
+                    <input type="text" class="form-input" id="productName" placeholder="Type here">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Product Description</label>
+                    <textarea class="form-input form-textarea" id="productDescription" placeholder="Type here"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label">Category</label>
+                        <select class="form-input" id="category">
+                            <option value="Earphone">Earphone</option>
+                            <option value="Headphone">Headphone</option>
+                            <option value="Camera">Camera</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="Smartphone">Smartphone</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Smartwatch">Smartwatch</option>
+                        </select>
+                    </div>
+                    <div class="form-col">
+                        <label class="form-label">Product Price</label>
+                        <input type="number" class="form-input" id="productPrice" placeholder="0">
+                    </div>
+                    <div class="form-col">
+                        <label class="form-label">Offer Price</label>
+                        <input type="number" class="form-input" id="offerPrice" placeholder="0">
+                    </div>
+                </div>
+
+                <button class="add-btn" onclick="addProduct()">ADD</button>
+            </div>
+
+            <!-- Product List Section -->
+            <div id="product-list" class="section">
+                <h2 class="section-title">All Products</h2>
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <!-- Existing products from main website -->
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iNiIgZmlsbD0iI0Y5RkFGQiIvPgo8cGF0aCBkPSJNMzAgMTVDMjYuNjg2MyAxNSAyNCAxNy42ODYzIDI0IDIxVjM5QzI0IDQyLjMxMzcgMjYuNjg2MyA0NSAzMCA0NUMzMy4zMTM3IDQ1IDM2IDQyLjMxMzcgMzYgMzlWMjFDMzYgMTcuNjg2MyAzMy4zMTM3IDE1IDMwIDE1WiIgZmlsbD0iIzZCNzI4MCIvPgo8L3N2Zz4K" class="product-img" alt="AirPods">
+                                    <span class="product-name">Apple AirPods Pro 2nd gen</span>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Earphone</span></td>
+                            <td>$399.99</td>
+                            <td><button class="visit-btn">Visit 🗗</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iNiIgZmlsbD0iI0Y5RkFGQiIvPgo8cmVjdCB4PSIxNSIgeT0iMjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiMzNzQxNTEiLz4KPC9zdmc+Cg==" class="product-img" alt="Canon">
+                                    <span class="product-name">Canon EOS R5</span>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Camera</span></td>
+                            <td>$3899.99</td>
+                            <td><button class="visit-btn">Visit 🗗</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iNiIgZmlsbD0iI0Y5RkFGQiIvPgo8cmVjdCB4PSIxMiIgeT0iMjIiIHdpZHRoPSIzNiIgaGVpZ2h0PSIxNiIgcng9IjIiIGZpbGw9IiMyNTYzRUIiLz4KPC9zdmc+Cg==" class="product-img" alt="PlayStation">
+                                    <span class="product-name">PlayStation 5</span>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Accessories</span></td>
+                            <td>$499.99</td>
+                            <td><button class="visit-btn">Visit 🗗</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iNiIgZmlsbD0iI0Y5RkFGQiIvPgo8cmVjdCB4PSIxNSIgeT0iMjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIyMCIgcng9IjIiIGZpbGw9IiM2MzY2RjEiLz4KPC9zdmc+Cg==" class="product-img" alt="Samsung">
+                                    <span class="product-name">Samsung Galaxy S23</span>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Smartphone</span></td>
+                            <td>$799.99</td>
+                            <td><button class="visit-btn">Visit 🗗</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iNiIgZmlsbD0iI0Y5RkFGQiIvPgo8cmVjdCB4PSIxMCIgeT0iMTgiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyNCIgcng9IjIiIGZpbGw9IiMzNzQxNTEiLz4KPC9zdmc+Cg==" class="product-img" alt="ASUS">
+                                    <span class="product-name">ASUS ROG Zephyrus G16</span>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Laptop</span></td>
+                            <td>$1999.99</td>
+                            <td><button class="visit-btn">Visit 🗗</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders" class="section">
+                <h2 class="section-title">Orders</h2>
+                
+                <div class="order-card">
+                    <div class="order-icon">📦</div>
+                    <div class="order-details">
+                        <div class="order-title">PlayStation 5 x 1</div>
+                        <div class="order-items">Items: 1</div>
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-name">dsm</div>
+                        <div class="customer-address">
+                            nduishfkwebvjekrbvejk<br>
+                            sgne, rknqrejnq<br>
+                            9876543210
+                        </div>
+                    </div>
+                    <div class="order-meta">
+                        <div class="order-price">$508.99</div>
+                        <div class="order-method">Method: COD</div>
+                        <div class="order-date">Date: 9/1/2025</div>
+                        <div class="order-status status-pending">Payment: Pending</div>
+                    </div>
+                </div>
+
+                <div class="order-card">
+                    <div class="order-icon">📦</div>
+                    <div class="order-details">
+                        <div class="order-title">Samsung Galaxy S23 x 1</div>
+                        <div class="order-items">Items: 1</div>
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-name">Sagar</div>
+                        <div class="customer-address">
+                            C-102, Aakruthi Sunshine Apartments<br>
+                            Bengaluru, Karnataka<br>
+                            9876543210
+                        </div>
+                    </div>
+                    <div class="order-meta">
+                        <div class="order-price">$814.99</div>
+                        <div class="order-method">Method: COD</div>
+                        <div class="order-date">Date: 9/1/2025</div>
+                        <div class="order-status status-pending">Payment: Pending</div>
+                    </div>
+                </div>
+
+                <div class="order-card">
+                    <div class="order-icon">📦</div>
+                    <div class="order-details">
+                        <div class="order-title">PlayStation 5 x 1</div>
+                        <div class="order-items">Items: 1</div>
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-name">Jay</div>
+                        <div class="customer-address">
+                            C-108 Gadhpur Township Kathodra rode Surat<br>
+                            Jalalpur, GUJARAT<br>
+                            9876543210
+                        </div>
+                    </div>
+                    <div class="order-meta">
+                        <div class="order-price">$508.99</div>
+                        <div class="order-method">Method: COD</div>
+                        <div class="order-date">Date: 9/1/2025</div>
+                        <div class="order-status status-pending">Payment: Pending</div>
+                    </div>
+                </div>
+
+                <div class="order-card">
+                    <div class="order-icon">📦</div>
+                    <div class="order-details">
+                        <div class="order-title">Samsung Galaxy S23 x 1</div>
+                        <div class="order-items">Items: 1</div>
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-name">Awais</div>
+                        <div class="customer-address">
+                            Fouji Colony<br>
+                            Liaquat Pur, Bahawalpur<br>
+                            9876543210
+                        </div>
+                    </div>
+                    <div class="order-meta">
+                        <div class="order-price">$814.99</div>
+                        <div class="order-method">Method: COD</div>
+                        <div class="order-date">Date: 9/1/2025</div>
+                        <div class="order-status status-pending">Payment: Pending</div>
+                    </div>
+                </div>
+
+                <div class="order-card">
+                    <div class="order-icon">📦</div>
+                    <div class="order-details">
+                        <div class="order-title">Samsung Galaxy S23 x 2</div>
+                        <div class="order-items">Items: 1</div>
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-name">jk</div>
+                        <div class="customer-address">
+                            Address not provided
+                        </div>
+                    </div>
+                    <div class="order-meta">
+                        <div class="order-price">$1629.98</div>
+                        <div class="order-method">Method: COD</div>
+                        <div class="order-date">Date: 9/1/2025</div>
+                        <div class="order-status status-pending">Payment: Pending</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let products = [];
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active from all sidebar items
+            document.querySelectorAll('.sidebar-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active to clicked sidebar item
+            event.target.classList.add('active');
+        }
+
+        function previewImage(input, index) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById(`preview-${index}`);
+                    preview.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">`;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function addProduct() {
+            const name = document.getElementById('productName').value;
+            const description = document.getElementById('productDescription').value;
+            const category = document.getElementById('category').value;
+            const price = document.getElementById('productPrice').value;
+            const offerPrice = document.getElementById('offerPrice').value;
+
+            if (!name || !description || !price) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            const product = {
+                name,
+                description,
+                category,
+                price: parseFloat(price),
+                offerPrice: offerPrice ? parseFloat(offerPrice) : null,
+                image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iNiIgZmlsbD0iI0Y5RkFGQiIvPjxyZWN0IHg9IjE1IiB5PSIxNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiByeD0iNCIgZmlsbD0iI0Y5NzMxNiIvPjwvc3ZnPg=='
+            };
+
+            products.push(product);
+            addProductToTable(product);
+            clearForm();
+            alert('Product added successfully!');
+        }
+
+        function addProductToTable(product) {
+            const tableBody = document.getElementById('productTableBody');
+            const row = document.createElement('tr');
+            
+            const displayPrice = product.offerPrice ? `${product.offerPrice.toFixed(2)}` : `${product.price.toFixed(2)}`;
+            
+            row.innerHTML = `
+                <td>
+                    <div class="product-info">
+                        <img src="${product.image}" class="product-img" alt="${product.name}">
+                        <span class="product-name">${product.name}</span>
+                    </div>
+                </td>
+                <td><span class="category-badge">${product.category}</span></td>
+                <td>${displayPrice}</td>
+                <td><button class="visit-btn">Visit 🗗</button></td>
+            `;
+            
+            tableBody.appendChild(row);
+        }
+
+        function clearForm() {
+            document.getElementById('productName').value = '';
+            document.getElementById('productDescription').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('offerPrice').value = '';
+            document.getElementById('category').value = 'Earphone';
+            
+            // Reset image previews
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`preview-${i}`).innerHTML = 'Upload';
+                document.getElementById(`img${i + 1}`).value = '';
+            }
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default active section
+            showSection('add-product');
+        });
+    </script>
+</body>
+</html>

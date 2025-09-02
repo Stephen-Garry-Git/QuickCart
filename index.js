@@ -40,3 +40,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize the slider
     showSlide(currentSlideIndex);
 });
+
+/*const shop = document.getElementById('shop-btn');
+shop.addEventListener("click", function() {
+    // Provide immediate feedback to the user.
+    shop.disabled = true; // Disable the button to prevent multiple clicks
+    shop.textContent = 'Opening Shop...'; // Change the button text
+    setTimeout(function() {
+        window.open("app/shop/shop.html", "_self");
+        // Optionally, restore the button's state after the action.
+        shop.disabled = false;
+        shop.textContent = 'Shop';
+    }, 5000);
+});*/
+
+//navigation link active state delay
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const destiNation = this.getAttribute('href');
+        setTimeout(() => {
+            window.location.href = destiNation;
+        }, 100); // Delay of 100 milliseconds
+    });
+});
+
+// seller button
+const sellerBtn = document.getElementById('seller-btn');
+sellerBtn.addEventListener("click", function() {
+    // Provide immediate feedback to the user.
+    sellerBtn.disabled = true; // Disable the button to prevent multiple clicks
+    sellerBtn.textContent = 'Opening Seller...'; // Change the button text
+    setTimeout(function() {
+        window.open("../seller-dashboard/index.html", "_self");
+    }, 500);
+});

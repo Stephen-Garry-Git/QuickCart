@@ -64,6 +64,10 @@ a {
     padding: 0;
 }
 
+.nav-link:active {
+    color: #111827;
+}
+
 .account-btn {
   display: flex;
   align-items: center;

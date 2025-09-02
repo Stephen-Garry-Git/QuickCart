@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickCart</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Geist+Semi&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
 
 </head>
 <body>
+    
     <nav class="navbar">
-        <img src="assets/logo.svg" alt="logo" class="logo">
+        <img src="/assets/logo.svg" alt="logo" class="logo">
         <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="/index.html" class="nav-link">Home</a>
             <a href="app/shop/shop.html" class="nav-link">Shop</a>
             <a href="#" class="nav-link">AboutUs</a>
             <a href="#" class="nav-link">Contact</a>
 
-            <button class="btn" id="seller-btn">Seller Dashboard</button>
+            <button class="btn">Seller Dashboard</button>
 
         </div>
         <ul>
@@ -31,71 +32,7 @@
     </nav>
 
     <main>
-        <section class="header-slider" id="header-slider">
-
-            <div class="slider-container" id="slider">
-
-                <!-- Slide 1 -->
-                <div class="slider-content">
-                    <div class="slider-text">
-                        <p class="offer">Limited Time Offer 30% Off</p>
-                        <h1>Experience Pure Sound - Your Perfect Headphones Awaits!</h1>
-                        <div class="buttons">
-                            <button class="btn-primary">Buy now</button>
-                            <button class="btn-secondary">
-                                Find more <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="slide-image">
-                        <img src="assets/header_headphone_image.png" alt="Headphones">
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="slider-content">
-                    <div class="slider-text">
-                        <p class="offer">Hurry up only few lefts!</p>
-                        <h1>Next-Level Gaming Starts Here - Discover PlayStation 5 Today!</h1>
-                        <div class="buttons">
-                            <button class="btn-primary">Shop Now</button>
-                            <button class="btn-secondary">
-                                Explore Deals <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="slide-image">
-                        <img src="assets/header_playstation_image.png" alt="PlayStation 5">
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="slider-content">
-                    <div class="slider-text">
-                        <p class="offer">Exclusive Deal 40% Off</p>
-                        <h1>Power Meets Elegance - Apple MacBook Pro is Here for you!</h1>
-                        <div class="buttons">
-                            <button class="btn-primary">Order Now</button>
-                            <button class="btn-secondary">
-                                Learn More <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="slide-image">
-                        <img src="assets/header_macbook_image.png" alt="MacBook Pro">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dots -->
-            <div class="slider-dots" id="slider-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-
-        </section>
-
+        
         <section class="home-products">
             <div class="home-product-content">
                 <h2>Popular products</h2>
@@ -332,83 +269,11 @@
                     </div>
 
                 </div>
-                <button class="see-more-btn">See more</button>
-            </div>
-        </section>
-
-        <section class="featured-products">
-            <div class="head-content">
-                <p>Featured Products</p>
-                <div class="underline"></div>
-            </div>
-
-            <div class="featured-product-grid">
-
-                <!-- Card 1 -->
-                <div class="featured-product-card">
-                    <img src="assets/girl_with_headphone_image.png" alt="Girl with an Headphone" class="featured-product-image">
-                    <div class="featured-product-overlay">    
-                        <p class="title">Unparalleled Sound</p>
-                        <p class="description">Experience crystal-clear audio with premium headphones.</p>
-                        <button class="buy-btn">
-                            Buy now <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="featured-product-card">
-                    <img src="assets/girl_with_earphone_image.png" alt="girl with earphone" class="featured-product-image">
-                    <div class="featured-product-overlay">    
-                        <p class="title">Stay Connected</p>
-                        <p class="description">Compact and stylish earphones for every occasion.</p>
-                        <button class="buy-btn">
-                            Buy now <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="featured-product-card">
-                    <img src="assets/boy_with_laptop_image.png" alt="Boy with laotop image" class="featured-product-image">
-                    <div class="featured-product-overlay">    
-                        <p class="title">Power in Every Pixel</p>
-                        <p class="description">Shop the latest laptops for work, gaming, and more.</p>
-                        <button class="buy-btn">
-                            Buy now <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="banner">
-            <div class="banner-container">
-                <img src="assets/jbl_soundbox_image.png" alt="sound img" class="banner-img">
-                <div class="banner-content">
-                    <h2>Level Up Your Gaming Experience</h2>
-                    <p>From immersive sound to precise controls—everything you need to win</p>
-                    <button class="btn-primary">Buy Now</button>
-                </div>
-                <img src="assets/md_controller_image.png" alt="md_controller_image" class="banner-controller-md">
-                <img src="assets/sm_controller_image.png" alt="sm_controller_image" class="banner-controller-sm">
-            </div>
-        </section>
-
-        <section class="newsletter">
-            <div class="news-letter-container">
-                <h1>Subscribe now & get 20% off</h1>
-                <p>Subscribe to our newsletter and be the first to know about exclusive offers, new arrivals, and more!</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" class="email-input" required>
-                    <button type="submit" class="subscribe-btn">Subscribe</button>
-                </form>
             </div>
         </section>
 
     </main>
-
+    
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-container">
@@ -435,6 +300,5 @@
         <p class="footer-bottom-text">Copyright 2025 © GreatStack.dev All Right Reserved.</p>
     </footer>
 
-    <script src="index.js" defer></script>
 </body>
 </html>
