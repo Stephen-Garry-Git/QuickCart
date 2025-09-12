@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickCart</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Geist+Semi&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
 
@@ -19,7 +19,10 @@
             <a href="#" class="nav-link">AboutUs</a>
             <a href="#" class="nav-link">Contact</a>
 
-            <button class="btn" id="seller-btn">Seller Dashboard</button>
+            <button class="btn" id="seller-btn">
+                <span class="btn-text">Seller Dashboard</span>
+                <div class="spinner hidden"></div>
+            </button>
 
         </div>
         <ul>
@@ -332,7 +335,10 @@
                     </div>
 
                 </div>
-                <button class="see-more-btn">See more</button>
+                <button class="see-more-btn" id="shop-btn">
+                    <span class="btn-text">See more</span>
+                    <div class="spinner hidden"></div>
+                </button>
             </div>
         </section>
 
@@ -434,6 +440,49 @@
         </div>
         <p class="footer-bottom-text">Copyright 2025 © GreatStack.dev All Right Reserved.</p>
     </footer>
+
+
+
+    <!-- Modal -->
+    <!-- Modal Overlay -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+
+            <h3>Sign in to QuickCart Ecommerce</h3>
+            <p>Welcome back! Please sign in to continue</p>
+
+            <!-- Google Button -->
+            <button class="google-signin-button">
+            <img src="assets/google-icon-logo-svgrepo-com.svg" alt="Google icon">
+            Continue with Google
+            </button>
+
+            <!-- Divider -->
+            <div class="or-divider">
+            <span class="or-text">or</span>
+            </div>
+
+            <!-- Email Input -->
+            <input type="email" placeholder="Enter your email address" class="email-input">
+
+            <!-- Continue Button -->
+            <button class="continue-button">Continue &raquo;</button>
+
+            <!-- Sign Up Link -->
+            <p class="signup-text">
+            Don't have an account? <a href="#">Sign up</a>
+            </p>
+
+            <!-- Security Info -->
+            <div class="security-info">
+            <p>Secured by <i class="fas fa-lock"></i> Clerk</p>
+            <p class="dev-mode">Development mode</p>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="index.js" defer></script>
 </body>

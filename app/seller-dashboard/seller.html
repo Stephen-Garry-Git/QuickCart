@@ -34,9 +34,13 @@
         }
 
         .logo::before {
-            content: "🛒";
+            content: "";
+            width: 24px;
+            height: 24px;
             margin-right: 8px;
-            font-size: 20px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcgNEgxVjZIMy4yTDYuNiAxNC41OUw1LjI1IDE3SDE5VjE1SDcuNDJMOC4zMyAxM0gxNi4yNUMxNi42MyAxMyAxNi45NiAxMi43OSAxNy4xIDEyLjQ1TDIwLjg4IDVINy4xTDYuMiAzSDFWMUg0TDUuMiAzSDIyVjRIMjAuMTNMMTYgMTEuNzdIMTRWMTBIMTFWMTJIOVYxMUg3LjA4TDcgNFoiIGZpbGw9IiNGOTczMTYiLz4KPC9zdmc+');
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
         .logout-btn {
@@ -250,6 +254,9 @@
             cursor: pointer;
             font-size: 12px;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .visit-btn:hover {
@@ -334,7 +341,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo"><img src="/assets/logo.svg" alt="Logo"></div>
+        <img src="/assets/logo.svg" alt="logo" class="logo">
         <button class="logout-btn">Logout</button>
     </div>
 
@@ -447,7 +454,14 @@
                             </td>
                             <td><span class="category-badge">Earphone</span></td>
                             <td>$399.99</td>
-                            <td><button class="visit-btn">Visit 🗗</button></td>
+                            <td>
+                                <button class="visit-btn">
+                                    Visit 
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M10.5 1.5H4.5V0H12V7.5H10.5V1.5ZM9 3L0 12L0.75 12.75L9.75 3.75V9H11.25V1.5H3.75V3H9Z"/>
+                                    </svg>
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -458,7 +472,14 @@
                             </td>
                             <td><span class="category-badge">Camera</span></td>
                             <td>$3899.99</td>
-                            <td><button class="visit-btn">Visit 🗗</button></td>
+                            <td>
+                                <button class="visit-btn">
+                                    Visit 
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M10.5 1.5H4.5V0H12V7.5H10.5V1.5ZM9 3L0 12L0.75 12.75L9.75 3.75V9H11.25V1.5H3.75V3H9Z"/>
+                                    </svg>
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -469,7 +490,14 @@
                             </td>
                             <td><span class="category-badge">Accessories</span></td>
                             <td>$499.99</td>
-                            <td><button class="visit-btn">Visit 🗗</button></td>
+                            <td>
+                                <button class="visit-btn">
+                                    Visit 
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M10.5 1.5H4.5V0H12V7.5H10.5V1.5ZM9 3L0 12L0.75 12.75L9.75 3.75V9H11.25V1.5H3.75V3H9Z"/>
+                                    </svg>
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -480,7 +508,14 @@
                             </td>
                             <td><span class="category-badge">Smartphone</span></td>
                             <td>$799.99</td>
-                            <td><button class="visit-btn">Visit 🗗</button></td>
+                            <td>
+                                <button class="visit-btn">
+                                    Visit 
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M10.5 1.5H4.5V0H12V7.5H10.5V1.5ZM9 3L0 12L0.75 12.75L9.75 3.75V9H11.25V1.5H3.75V3H9Z"/>
+                                    </svg>
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -491,7 +526,14 @@
                             </td>
                             <td><span class="category-badge">Laptop</span></td>
                             <td>$1999.99</td>
-                            <td><button class="visit-btn">Visit 🗗</button></td>
+                            <td>
+                                <button class="visit-btn">
+                                    Visit 
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M10.5 1.5H4.5V0H12V7.5H10.5V1.5ZM9 3L0 12L0.75 12.75L9.75 3.75V9H11.25V1.5H3.75V3H9Z"/>
+                                    </svg>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -502,7 +544,11 @@
                 <h2 class="section-title">Orders</h2>
                 
                 <div class="order-card">
-                    <div class="order-icon">📦</div>
+                    <div class="order-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                            <path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2v14H3v3c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V2l-1.5 1.5zM19 19c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1zm0-3H8V5h11v11z"/>
+                        </svg>
+                    </div>
                     <div class="order-details">
                         <div class="order-title">PlayStation 5 x 1</div>
                         <div class="order-items">Items: 1</div>
@@ -524,7 +570,11 @@
                 </div>
 
                 <div class="order-card">
-                    <div class="order-icon">📦</div>
+                    <div class="order-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                            <path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2v14H3v3c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V2l-1.5 1.5zM19 19c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1zm0-3H8V5h11v11z"/>
+                        </svg>
+                    </div>
                     <div class="order-details">
                         <div class="order-title">Samsung Galaxy S23 x 1</div>
                         <div class="order-items">Items: 1</div>
@@ -540,175 +590,47 @@
                     <div class="order-meta">
                         <div class="order-price">$814.99</div>
                         <div class="order-method">Method: COD</div>
-                        <div class="order-date">Date: 9/1/2025</div>
-                        <div class="order-status status-pending">Payment: Pending</div>
-                    </div>
-                </div>
 
-                <div class="order-card">
-                    <div class="order-icon">📦</div>
-                    <div class="order-details">
-                        <div class="order-title">PlayStation 5 x 1</div>
-                        <div class="order-items">Items: 1</div>
-                    </div>
-                    <div class="customer-info">
-                        <div class="customer-name">Jay</div>
-                        <div class="customer-address">
-                            C-108 Gadhpur Township Kathodra rode Surat<br>
-                            Jalalpur, GUJARAT<br>
-                            9876543210
-                        </div>
-                    </div>
-                    <div class="order-meta">
-                        <div class="order-price">$508.99</div>
-                        <div class="order-method">Method: COD</div>
-                        <div class="order-date">Date: 9/1/2025</div>
-                        <div class="order-status status-pending">Payment: Pending</div>
-                    </div>
-                </div>
 
-                <div class="order-card">
-                    <div class="order-icon">📦</div>
-                    <div class="order-details">
-                        <div class="order-title">Samsung Galaxy S23 x 1</div>
-                        <div class="order-items">Items: 1</div>
-                    </div>
-                    <div class="customer-info">
-                        <div class="customer-name">Awais</div>
-                        <div class="customer-address">
-                            Fouji Colony<br>
-                            Liaquat Pur, Bahawalpur<br>
-                            9876543210
-                        </div>
-                    </div>
-                    <div class="order-meta">
-                        <div class="order-price">$814.99</div>
-                        <div class="order-method">Method: COD</div>
-                        <div class="order-date">Date: 9/1/2025</div>
-                        <div class="order-status status-pending">Payment: Pending</div>
-                    </div>
-                </div>
 
-                <div class="order-card">
-                    <div class="order-icon">📦</div>
-                    <div class="order-details">
-                        <div class="order-title">Samsung Galaxy S23 x 2</div>
-                        <div class="order-items">Items: 1</div>
-                    </div>
-                    <div class="customer-info">
-                        <div class="customer-name">jk</div>
-                        <div class="customer-address">
-                            Address not provided
-                        </div>
-                    </div>
-                    <div class="order-meta">
-                        <div class="order-price">$1629.98</div>
-                        <div class="order-method">Method: COD</div>
-                        <div class="order-date">Date: 9/1/2025</div>
-                        <div class="order-status status-pending">Payment: Pending</div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        let products = [];
 
+    <script>
         function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
+            // 1. Hide all sections
+            const allSections = document.querySelectorAll('.section');
+            allSections.forEach(section => {
                 section.classList.remove('active');
             });
-            
-            // Remove active from all sidebar items
-            document.querySelectorAll('.sidebar-item').forEach(item => {
+
+            // 2. Remove 'active' class from all sidebar items
+            const allSidebarItems = document.querySelectorAll('.sidebar-item');
+            allSidebarItems.forEach(item => {
                 item.classList.remove('active');
             });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active to clicked sidebar item
-            event.target.classList.add('active');
-        }
 
-        function previewImage(input, index) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const preview = document.getElementById(`preview-${index}`);
-                    preview.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">`;
-                };
-                reader.readAsDataURL(input.files[0]);
+            // 3. Show the selected section and add 'active' class to sidebar item
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+
+            // Optional: Add 'active' class to the clicked sidebar item
+            const selectedSidebarItem = document.querySelector(`.sidebar-item[onclick="showSection('${sectionId}')"]`);
+            if (selectedSidebarItem) {
+                selectedSidebarItem.classList.add('active');
             }
         }
 
-        function addProduct() {
-            const name = document.getElementById('productName').value;
-            const description = document.getElementById('productDescription').value;
-            const category = document.getElementById('category').value;
-            const price = document.getElementById('productPrice').value;
-            const offerPrice = document.getElementById('offerPrice').value;
-
-            if (!name || !description || !price) {
-                alert('Please fill in all required fields');
-                return;
-            }
-
-            const product = {
-                name,
-                description,
-                category,
-                price: parseFloat(price),
-                offerPrice: offerPrice ? parseFloat(offerPrice) : null,
-                image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iNiIgZmlsbD0iI0Y5RkFGQiIvPjxyZWN0IHg9IjE1IiB5PSIxNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiByeD0iNCIgZmlsbD0iI0Y5NzMxNiIvPjwvc3ZnPg=='
-            };
-
-            products.push(product);
-            addProductToTable(product);
-            clearForm();
-            alert('Product added successfully!');
-        }
-
-        function addProductToTable(product) {
-            const tableBody = document.getElementById('productTableBody');
-            const row = document.createElement('tr');
-            
-            const displayPrice = product.offerPrice ? `${product.offerPrice.toFixed(2)}` : `${product.price.toFixed(2)}`;
-            
-            row.innerHTML = `
-                <td>
-                    <div class="product-info">
-                        <img src="${product.image}" class="product-img" alt="${product.name}">
-                        <span class="product-name">${product.name}</span>
-                    </div>
-                </td>
-                <td><span class="category-badge">${product.category}</span></td>
-                <td>${displayPrice}</td>
-                <td><button class="visit-btn">Visit 🗗</button></td>
-            `;
-            
-            tableBody.appendChild(row);
-        }
-
-        function clearForm() {
-            document.getElementById('productName').value = '';
-            document.getElementById('productDescription').value = '';
-            document.getElementById('productPrice').value = '';
-            document.getElementById('offerPrice').value = '';
-            document.getElementById('category').value = 'Earphone';
-            
-            // Reset image previews
-            for (let i = 0; i < 4; i++) {
-                document.getElementById(`preview-${i}`).innerHTML = 'Upload';
-                document.getElementById(`img${i + 1}`).value = '';
-            }
-        }
-
-        // Initialize dashboard
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set default active section
+        // Optional: Initial state on page load
+        // This ensures that the 'add-product' section is shown and active when the page first loads
+        document.addEventListener('DOMContentLoaded', () => {
             showSection('add-product');
         });
     </script>

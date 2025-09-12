@@ -41,18 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentSlideIndex);
 });
 
-/*const shop = document.getElementById('shop-btn');
+// See more button with spinner
+const shop = document.getElementById('shop-btn');
 shop.addEventListener("click", function() {
-    // Provide immediate feedback to the user.
-    shop.disabled = true; // Disable the button to prevent multiple clicks
-    shop.textContent = 'Opening Shop...'; // Change the button text
-    setTimeout(function() {
-        window.open("app/shop/shop.html", "_self");
-        // Optionally, restore the button's state after the action.
-        shop.disabled = false;
-        shop.textContent = 'Shop';
-    }, 5000);
-});*/
+    // Get the text and spinner elements
+    const btnText = shop.querySelector('.btn-text');
+    const spinner = shop.querySelector('.spinner');
+    
+    // Provide immediate feedback
+    shop.disabled = true;
+    spinner.classList.remove('hidden'); // Show spinner
+    
+    setTimeout(function() {
+        window.open("app/shop/shop.html", "_self");
+        // Note: The code below won't run due to page navigation
+        shop.disabled = false;
+        btnText.textContent = 'Shop';
+        spinner.classList.add('hidden');
+    }, 2000);
+});
 
 //navigation link active state delay
 const navLinks = document.querySelectorAll('.nav-link');
@@ -66,13 +73,53 @@ navLinks.forEach(link => {
     });
 });
 
-// seller button
+// seller button with spinner
 const sellerBtn = document.getElementById('seller-btn');
 sellerBtn.addEventListener("click", function() {
-    // Provide immediate feedback to the user.
-    sellerBtn.disabled = true; // Disable the button to prevent multiple clicks
-    sellerBtn.textContent = 'Opening Seller...'; // Change the button text
+    // Get the text and spinner elements
+    const btnText = sellerBtn.querySelector('.btn-text');
+    const spinner = sellerBtn.querySelector('.spinner');
+    
+    // Provide immediate feedback
+    sellerBtn.disabled = true;
+    spinner.classList.remove('hidden'); // Show spinner
+    
     setTimeout(function() {
-        window.open("../seller-dashboard/index.html", "_self");
-    }, 500);
+        window.open("app/seller-dashboard/seller.html", "_self");
+        // Note: The code below won't run due to page navigation
+        sellerBtn.disabled = false;
+        btnText.textContent = 'Seller Dashboard';
+        spinner.classList.add('hidden');
+    }, 2000);
 });
+
+// Modal functionality for "Account" link
+// Get the modal and the close button
+const modalOverlay = document.getElementById('modal-overlay');
+const closeBtn = document.querySelector('.close-button');
+
+// Function to hide the modal
+function hideModal() {
+    modalOverlay.style.display = 'none';
+}
+
+// Add the event listener to the close button
+if (closeBtn) {
+    closeBtn.addEventListener('click', hideModal);
+}
+
+// Get the "Account" button from your navbar
+const accountBtn = document.getElementById('account-btn');
+
+// Function to show the modal
+function showModal() {
+    modalOverlay.style.display = 'flex'; // Use flex to center the content
+}
+
+// Add the event listener to the "Account" button
+if (accountBtn) {
+    accountBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevents any default action of the button
+        showModal();
+    });
+}

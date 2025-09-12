@@ -49,12 +49,15 @@ a {
   color: #111827;
 }
 .btn {
-  font-size: 0.75rem;
-  border: 1px solid #ccc;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  background: transparent;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
 }
 .navbar ul {
     display: flex;
@@ -259,6 +262,9 @@ main {
 }
 
 .see-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 200px;
     height: 50px;
     padding: 0.625rem 3rem;
@@ -898,4 +904,162 @@ main {
 
 @media (min-width: 1280px) {
     
+}
+
+/* Loading spinner */
+        .spinner {
+            width: 16px;
+            height: 16px;
+            margin: auto;
+            border: 2px solid rgb(29, 27, 48);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    /*background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 350px;
+    position: relative;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    text-align: center;
+    font-family: Arial, sans-serif;*/
+    
+    line-height: 30px;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    min-height: 400px; /* 👈 makes it longer */
+    position: relative;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+}
+
+/* Close Button */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover { color: #000; }
+
+/* Google Button */
+.google-signin-button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+    background: #fff;
+}
+.google-signin-button img {
+    width: 20px;
+}
+
+/* Divider */
+.or-divider {
+    margin: 15px 0;
+    border-top: 1px solid #ddd;
+    position: relative;
+}
+.or-divider .or-text {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 0 10px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Input */
+.email-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Continue Button */
+.continue-button {
+    width: 100%;
+    padding: 12px;
+    background: #1313208f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.continue-button:hover {
+    background: #0000009f;
+}
+
+/* Sign up text */
+.signup-text {
+    font-size: 14px;
+}
+.signup-text a {
+    color: #000000;
+    text-decoration: none;
+}
+.signup-text a:hover { text-decoration: underline; }
+
+/* Security Info */
+.security-info {
+    font-size: 12px;
+    color: #555;
+}
+.security-info i {
+    color: #000102;
+}
+.dev-mode {
+    color: rgb(216, 98, 2);
+    font-weight: bold;
 }
